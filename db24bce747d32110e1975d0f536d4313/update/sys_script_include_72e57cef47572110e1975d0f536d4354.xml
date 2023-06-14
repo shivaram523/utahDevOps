@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>global.DevOpsScriptinclude</api_name>
+        <caller_access/>
+        <client_callable>true</client_callable>
+        <description/>
+        <name>DevOpsScriptinclude</name>
+        <script><![CDATA[var DevOpsScriptinclude = Class.create();
+DevOpsScriptinclude.prototype = Object.extendsObject(global.AbstractAjaxProcessor, {
+
+    type: 'DevOpsScriptinclude'
+});]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-14 02:24:15</sys_created_on>
+        <sys_id>72e57cef47572110e1975d0f536d4354</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>DevOpsScriptinclude</sys_name>
+        <sys_package display_value="DevOpsSNOW" source="db24bce747d32110e1975d0f536d4313">db24bce747d32110e1975d0f536d4313</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="DevOpsSNOW">db24bce747d32110e1975d0f536d4313</sys_scope>
+        <sys_update_name>sys_script_include_72e57cef47572110e1975d0f536d4354</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-14 02:24:15</sys_updated_on>
+    </sys_script_include>
+</record_update>
