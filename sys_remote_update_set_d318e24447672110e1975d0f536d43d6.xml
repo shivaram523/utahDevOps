@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?><unload unload_date="2023-06-15 23:59:38">
+<sys_remote_update_set action="INSERT_OR_UPDATE">
+<application display_value="Global">global</application>
+<application_name>Global</application_name>
+<application_scope>global</application_scope>
+<application_version/>
+<collisions/>
+<commit_date/>
+<deleted/>
+<description/>
+<inserted/>
+<name>DevOpsGlobla</name>
+<origin_sys_id/>
+<parent display_value=""/>
+<release_date/>
+<remote_base_update_set display_value=""/>
+<remote_parent_id/>
+<remote_sys_id>7831ae0447672110e1975d0f536d437a</remote_sys_id>
+<state>loaded</state>
+<summary/>
+<sys_class_name>sys_remote_update_set</sys_class_name>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2023-06-15 23:59:38</sys_created_on>
+<sys_id>d318e24447672110e1975d0f536d43d6</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2023-06-15 23:59:38</sys_updated_on>
+<update_set display_value=""/>
+<update_source display_value=""/>
+<updated/>
+</sys_remote_update_set>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_script_include_d65f78c40a0a0b6900196656f35913d3</name>
+<payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sys_script_include"&gt;&lt;sys_script_include action="INSERT_OR_UPDATE"&gt;&lt;access&gt;public&lt;/access&gt;&lt;active&gt;true&lt;/active&gt;&lt;api_name&gt;global.AbstractAjaxProcessor&lt;/api_name&gt;&lt;caller_access/&gt;&lt;client_callable&gt;true&lt;/client_callable&gt;&lt;description&gt;Base ajax processor class that other ajax processors extend&lt;/description&gt;&lt;name&gt;AbstractAjaxProcessor&lt;/name&gt;&lt;script&gt;&lt;![CDATA[// Base ajax processor class that other ajax processors extend
+// 
+// note that some methods return Java values, not JavaScript values tedst
+
+var AbstractAjaxProcessor = Class.create();
+
+AbstractAjaxProcessor.prototype = {
+    CALLABLE_PREFIX : 'ajaxFunction_',
+
+    initialize : function(request, responseXML, gc) {
+        this.request = request;
+        this.responseXML = responseXML;
+        this.gc = gc;
+    },
+
+    process : function() {
+        var functionName = this.getName();
+        if (!functionName)
+            return;
+
+        if (functionName.indexOf('_') == 0)
+            return;
+        
+        var f = this[functionName];
+        if (!f) {         
+            functionName = this.CALLABLE_PREFIX + functionName;
+            var f = this[functionName];
+            if (!f)
+                return;
+        }
+        if (typeof f != 'function')
+            return;
+
+        return f.call(this);
+    },
+
+    newItem: function(name) {
+        if (!name)
+            name = "item";
+
+        var item = this.getDocument().createElement(name);
+        this.getRootElement().appendChild(item);
+        return item;
+    },
+
+    // returns value of parameter as a Java String instance
+    getParameter: function(name) {
+        return this.request.getParameter(name)
+    },
+
+    getDocument: function() {
+        return this.responseXML;
+    },
+
+    getRootElement: function() {
+        return this.responseXML.getDocumentElement();
+    },
+
+    // returns value of "sysparm_name" as a Java String instance
+    getName: function() {
+        return this.getParameter("sysparm_name");
+    },
+
+    // returns value of "sysparm_value" as a Java String instance
+    getValue: function() {
+        return this.getParameter("sysparm_value");
+    },
+
+    // returns value of "sysparm_type" as a Java String instance
+    getType: function() {
+        return this.getParameter("sysparm_type");
+    },
+
+    getChars: function() {
+        return this.getParameter("sysparm_chars");
+    },
+
+    setAnswer: function(value) {
+        this.getRootElement().setAttribute("answer", value);
+    },
+
+    setError: function(error) {
+        this.getRootElement().setAttribute("error", error);
+    },
+
+    type: "AbstractAjaxProcessor"
+}]]&gt;&lt;/script&gt;&lt;sys_class_name&gt;sys_script_include&lt;/sys_class_name&gt;&lt;sys_created_by&gt;glide.maint&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2009-06-12 21:28:49&lt;/sys_created_on&gt;&lt;sys_id&gt;d65f78c40a0a0b6900196656f35913d3&lt;/sys_id&gt;&lt;sys_mod_count&gt;32&lt;/sys_mod_count&gt;&lt;sys_name&gt;AbstractAjaxProcessor&lt;/sys_name&gt;&lt;sys_package display_value="System (glidesoft)" source="glidesoft"&gt;4579cf31e821211076da10591ad2871a&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Global"&gt;global&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_script_include_d65f78c40a0a0b6900196656f35913d3&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2023-06-15 23:58:39&lt;/sys_updated_on&gt;&lt;/sys_script_include&gt;&lt;/record_update&gt;</payload>
+<payload_hash>-429858446</payload_hash>
+<remote_update_set display_value="DevOpsGlobla">d318e24447672110e1975d0f536d43d6</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2023-06-15 23:59:38</sys_created_on>
+<sys_id>d718e24447672110e1975d0f536d43d6</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>188c17f36c40000001</sys_recorded_at>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2023-06-15 23:59:38</sys_updated_on>
+<table/>
+<target_name>AbstractAjaxProcessor</target_name>
+<type>Script Include</type>
+<update_domain>global</update_domain>
+<update_guid>85e7e608c2672110a626d77b604c8eb7</update_guid>
+<update_guid_history>85e7e608c2672110a626d77b604c8eb7:-429858446,0de7e608a06721103c1c4101404183b5:202608518</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+</unload>
